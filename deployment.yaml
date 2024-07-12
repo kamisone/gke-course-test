@@ -1,21 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: node_app_label
+  name: node-app-label
   namespace: default
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: node_app
+      app: node-app
   template:
     metadata:
       labels:
-        app: node_app
+        app: node-app
     spec:
       containers:
       - image: gcr.io/misc-project-429205/node_app:v1
-        name: node_app_container
+        name: node-app-container
         # env: 
         #   - name: GOOGLE_APPLICATION_CREDENTIALS
         #     valueFrom: 
@@ -26,7 +26,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: node_app_lb
+  name: node-app-lb
   namespace: default
   # annotations:
   #   beta.cloud.google.com/backend-config: '{"default": "enable-iap"}'
@@ -36,6 +36,6 @@ spec:
     protocol: TCP
     targetPort: 8080
   selector:
-    app: node_app
+    app: node-app
   sessionAffinity: None
   type: LoadBalancer
