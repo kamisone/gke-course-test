@@ -13,15 +13,19 @@ spec:
       labels:
         app: node-app
     spec:
+      volumes:
+        - name: google-cloud-key
+          secret:
+            secretName: pods-secrets
       containers:
       - image: gcr.io/misc-project-429205/node_app:v2
         name: node-app-container
+        volumeMounts:
+          - name: google-cloud-key
+            mountPath: /var/secrets/google
         env: 
           - name: GOOGLE_APPLICATION_CREDENTIALS
-            valueFrom: 
-              secretKeyRef:
-                name: pods-secrets
-                key: sapath.json
+            value: /var/secrets/google/sapath.json
 ---
 apiVersion: v1
 kind: Service
