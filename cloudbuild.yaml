@@ -15,3 +15,6 @@ steps:
         "--location=us-west4", 
         "--cluster=my-first-cluster"
         ]
+
+options:
+  logging: CLOUD_LOGGING_ONLY
