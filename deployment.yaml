@@ -21,7 +21,7 @@ spec:
             valueFrom: 
               secretKeyRef:
                 name: pods-secrets
-                key: sa-path  
+                key: sapath.json
 ---
 apiVersion: v1
 kind: Service
