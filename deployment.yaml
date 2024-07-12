@@ -14,7 +14,7 @@ spec:
         app: node-app
     spec:
       containers:
-      - image: gcr.io/misc-project-429205/node_app:v1
+      - image: gcr.io/misc-project-429205/node_app:v2
         name: node-app-container
         env: 
           - name: GOOGLE_APPLICATION_CREDENTIALS
