@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: node_app_label
+  namespace: default
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: node_app
+  template:
+    metadata:
+      labels:
+        app: node_app
+    spec:
+      containers:
+      - image: gcr.io/misc-project-429205/node_app:v1
+        name: node_app_container
+        # env: 
+        #   - name: GOOGLE_APPLICATION_CREDENTIALS
+        #     valueFrom: 
+        #       secretKeyRef:
+        #         name: pods-secrets
+        #         key: sa-path  
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: node_app_lb
+  namespace: default
+  # annotations:
+  #   beta.cloud.google.com/backend-config: '{"default": "enable-iap"}'
+spec:
+  ports:
+  - port: 8080
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: node_app
+  sessionAffinity: None
+  type: LoadBalancer
