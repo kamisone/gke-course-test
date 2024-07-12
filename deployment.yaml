@@ -16,12 +16,12 @@ spec:
       containers:
       - image: gcr.io/misc-project-429205/node_app:v1
         name: node-app-container
-        # env: 
-        #   - name: GOOGLE_APPLICATION_CREDENTIALS
-        #     valueFrom: 
-        #       secretKeyRef:
-        #         name: pods-secrets
-        #         key: sa-path  
+        env: 
+          - name: GOOGLE_APPLICATION_CREDENTIALS
+            valueFrom: 
+              secretKeyRef:
+                name: pods-secrets
+                key: sa-path  
 ---
 apiVersion: v1
 kind: Service
