@@ -58,8 +58,8 @@ async function generateV4UploadSignedUrl() {
 
   // Get a v4 signed URL for uploading file
   return storage
-    .bucket("my-first-bucket-winw2")
-    .file("sample-pdf.png")
+    .bucket("my-first-bucket-winw3")
+    .file("my-photo.jpg")
     .getSignedUrl({ ...options });
 }
 
