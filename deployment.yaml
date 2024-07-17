@@ -18,7 +18,7 @@ spec:
       #     secret:
       #       secretName: pods-secrets
       containers:
-      - image: gcr.io/misc-project-429205/node_app:v2
+      - image: gcr.io/my-first-project-429710/node_app:v2
         name: node-app-container
         # volumeMounts:
         #   - name: google-cloud-key

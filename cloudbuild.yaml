@@ -1,18 +1,18 @@
 steps:
 
 - name: 'gcr.io/cloud-builders/docker'
-  args: ["build", '-t', "gcr.io/misc-project-429205/node_app:v2", "."]
+  args: ["build", '-t', "gcr.io/my-first-project-429710/node_app:v3", "."]
 
 - name: "gcr.io/cloud-builders/docker"
-  args: ["push", "gcr.io/misc-project-429205/node_app:v2"]
+  args: ["push", "gcr.io/my-first-project-429710/node_app:v3"]
 
 
 - name: "gcr.io/cloud-builders/gke-deploy"
   args: [
         "run", 
         "--filename=deployment.yaml", 
-        "--image=gcr.io/misc-project-429205/node_app:v2", 
-        "--location=us-west4", 
+        "--image=gcr.io/my-first-project-429710/node_app:v3", 
+        "--location=us-west4-a", 
         "--cluster=my-first-cluster"
         ]
 
